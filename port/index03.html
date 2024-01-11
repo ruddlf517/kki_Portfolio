@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vg-controller-client.latest.min.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/basic.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header class="header">
+        <div class="weektitle">
+          <ul>
+            <li>01.</li>
+            <li>이러닝 콘텐츠(상호작용)</li>
+          </ul>
+        </div>
+         <div class="subject">상호작용</div>
+        <div class="professor">고경일</div>
+      </header>
+      <section class="section" tabindex="0" role="main">
+        <iframe id="vod_ifrm" src="" width="1120" height="630" frameborder="0" scrolling="no" allowfullscreen="true" tabindex="6"></iframe>
+      </section>
+      <nav class="nav" id="sidebar-wrapper" role="navigation">
+        <ul>
+          <li class="btn"><a href="index01.html" class="page" target="_self">들어가기</a></li>
+          <li class="btn"><a href="index02.html" class="page" target="_self">1교시</a></li>
+          <li class="btn"><a href="index03.html" class="page" target="_self">2교시</a></li>
+          <li class="btn"><a href="index04.html" class="page" target="_self">3교시</a></li>
+          <li class="btn"><a href="index05.html" class="page" target="_self">연습문제</a></li>
+          <li class="btn"><a href="index06.html" class="page" target="_self">정리하기</a></li>
+        </ul>
+      </nav>
+      <footer class="footer">
+        <div class="naviBt"></div>
+        <div class="subtitleControl" id="subtitleControl">
+          <button class="button" value="0" onclick="chk(value); subtitle();" onmouseover="overstyle(value)" onmouseout="outstyle(value)" tabindex="-1">자막 ON</button>
+          <button class="button" value="1" onclick="chk(value); subtitleOnshadow(true);" onmouseover="overstyle(value)" onmouseout="outstyle(value)" tabindex="-1">자막배경 ON</button>
+          <div id="noticeTip">본 과목은 자막지원을 하지 않는 과목입니다. </div>
+          <div id="distinction"></div>
+          <div id="cover" onmouseover="noticeOn()" onmouseout="noticeOff()" tabindex="-1"></div>
+        </div>
+        <div class="dropup">
+          <div id="allowInfo">▲</div>
+          <div class="dropbtn" id="pageSetup" aria-label="현재페이지"></div>
+          <div class="dropup-content">
+            <a href="index01.html" target="_self" tabindex="-1">1</a>
+            <a href="index02.html" target="_self" tabindex="-1">2</a>
+            <a href="index03.html" target="_self" tabindex="-1">3</a>
+            <a href="index04.html" target="_self" tabindex="-1">4</a>
+            <a href="index05.html" target="_self" tabindex="-1">5</a>
+			<a href="index06.html" target="_self" tabindex="-1">6</a>
+          </div>
+          <div class="separateLine">/</div>
+          <div class="totalPage" id="totalPageSetup" aria-label="토탈페이지"></div>
+        </div>
+
+      </footer>
+    </div>
+    
+    <h3><a href="../../port_2.html" style=" position:absolute; text-align: center; top:800px; left:550px;">목록으로</a></h3>
+    <script src="js/menu.js"></script>
+    <script src="js/moviecontrol.js"></script>
+    <script>
+      var fileName="20B620092_c1_01_03.mp4";
+
+      var vod_url = "/Lesson.do?cmd=viewElement&channelKey="+channelKey+"&fileName="+fileName+"&lessonElementId="+lessonElementId+"&courseId="+courseId+"&pcPlayerVersion=v3&autoplay=Y";
+      document.getElementById("vod_ifrm").src = vod_url;
+      controller = new Kollus.VideogatewayController({
+        target_window: document.getElementById('vod_ifrm').contentWindow
+      });
+
+      controller.on('ready', function() {
+      	controller.set_subtitle_visibility(false);
+        controller.set_subtitle_shadow_rect(false);
+      });
+
+      controller.on('done',function(){
+          location.href= "index0"+nextPage+".html"
+      });
+    </script>
+  </body>
+</html>

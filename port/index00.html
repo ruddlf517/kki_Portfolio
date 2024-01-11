@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/vg-controller-client.latest.min.js"></script>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/basic.css">
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header class="header">
+        <div class="weektitle">
+          <ul>
+            <li>01.</li>
+            <li>이러닝 콘텐츠(상호작용)</li>
+          </ul>
+        </div>
+        <div class="subject">상호작용</div>
+        <div class="professor">고경일</div>
+      </header>
+      <div hidden>현재페이지는 1주차에만 있는 강의 조작에 대한 설명 이미지 입니다. 메뉴 사용방법과
+         설정 버튼에 대한 해설이 포함되어 있습니다.  </div>
+      <button id="closeBt" onclick="startCourse()" tabindex="0" aria-label="강의시작"></button>
+      <section class="section">
+        <iframe id="vod_ifrm" src="" width="1120" height="630" frameborder="0" scrolling="no" allowfullscreen="true" tabindex="6"></iframe>
+      </section>
+      <div id="coachMark" onclick="startCourse()"></div>
+      <h3><a href="../../port_2.html" style=" position:absolute; text-align: center; top:800px; left:550px; " >목록으로</a></h3>
+      <script>
+        var controller;
+        var channelKey = "0va7g12o"
+        var fileName = "20B620092_c1_01_01.mp4";
+        var vod_url = "http://lms.ocu.ac.kr/Lesson.do?cmd=viewElement&channelKey="+channelKey+"&fileName="+fileName+"&pcPlayerVersion=v3";
+        document.getElementById("vod_ifrm").src = vod_url;
+        controller = new Kollus.VideogatewayController({
+          target_window: document.getElementById('vod_ifrm').contentWindow
+        });
+
+        function startCourse(){
+          document.location.href='index01.html';
+        }
+      </script>
+    </div>
+  </body>
+</html>
